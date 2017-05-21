@@ -1,6 +1,6 @@
 # vibay
 
-> A Vietnamese Auction Site
+> A Supposedly mini-ERP solution
 
 ## Build Setup
 
