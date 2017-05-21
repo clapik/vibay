@@ -1,10 +1,8 @@
 <template>
-  <header>
-    <v-toolbar>
-      <v-toolbar-side-icon @click.native.stop="toggleSidebar()"/>
-      <v-toolbar-title>Toolbar</v-toolbar-title>
-    </v-toolbar>
-  </header>
+  <v-toolbar fixed>
+    <v-toolbar-side-icon @click.native.stop="toggleSidebar()"/>
+    <v-toolbar-title>Toolbar</v-toolbar-title>
+  </v-toolbar>
 </template>
 
 <script>

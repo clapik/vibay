@@ -1,13 +1,11 @@
 <template>
-  <v-app id="app" :left-fixed-sidebar="showSidebar ? true : false">
-    <toolbar></toolbar>
+  <v-app id="app">
     <sidebar></sidebar>
+    <toolbar></toolbar>
     <main>
-      <v-content class="pt-4">
-        <v-container fluid>
-          <router-view></router-view>
-        </v-container>
-      </v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
     </main>
   </v-app>
 </template>
