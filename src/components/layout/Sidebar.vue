@@ -41,10 +41,10 @@
     name: 'toolbar',
     data() {
       return {
-        mini: false,
+        mini: true,
         items: [
-          { title: 'Home', icon: 'dashboard', active: true },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'Home', icon: 'mail', active: true },
+          { title: 'Email', icon: 'mail' }
         ]
       }
     },

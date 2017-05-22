@@ -1,2 +1,9 @@
 // NAVIGATION
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
+
+// FEATHERS CLIENT
+export const SET_UP_FEATHERS = 'SET_UP_FEATHERS';
+
+// AUTHENTICATION
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_UP = 'SIGN_UP';
