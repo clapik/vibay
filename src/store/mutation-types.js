@@ -1,9 +1,7 @@
-// NAVIGATION
-export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
-
-// FEATHERS CLIENT
-export const SET_UP_FEATHERS = 'SET_UP_FEATHERS';
+/***
+ * All possible mutations
+ */
 
 // AUTHENTICATION
 export const SIGN_IN = 'SIGN_IN';
-export const SIGN_UP = 'SIGN_UP';
+export const SIGN_OUT = 'SIGN_OUT';

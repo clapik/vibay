@@ -9,29 +9,15 @@ const getters = {
 };
 
 const mutations = {
-  [types.SIGN_IN](state, payload) {
-    state.currentUser = payload;
+  [types.SIGN_IN](state) {
+    state.currentUser.signedIn = true;
+  },
+  [types.SIGN_OUT](state) {
+    state.currentUser = {};
   }
 };
 
-const actions = {
-  signIn({commit, state, rootState}, payload) {
-    const client = rootState.feathers.client;
-    return new Promise((resolve, reject) => {
-      client.authenticate({
-        strategy: 'local',
-        email: payload.email,
-        password: payload.password
-      }).then(token => {
-        console.log('User is logged in');
-        console.log(token);
-        resolve(token)
-      }).catch(error => {
-        reject(error)
-      });
-    })
-  }
-};
+const actions = {};
 
 export default {
   state, getters, actions, mutations

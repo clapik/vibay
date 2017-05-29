@@ -5,13 +5,11 @@ import Vuetify from 'vuetify';
 import App from './App';
 import router from './router';
 import store from './store';
-// import * as types from './store/mutation-types';
-// import client from './store/modules/feathers_client';
+import FeathersClient from './plugins/feathers'
 
 Vue.config.productionTip = false;
 Vue.use(Vuetify);
-
-// store.commit(types.SET_UP_FEATHERS, client);
+Vue.use(FeathersClient);
 
 /* eslint-disable no-new */
 new Vue({

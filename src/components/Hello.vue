@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import * as types from '../store/mutation-types';
   export default {
     name: 'hello',
     data () {
@@ -20,8 +21,20 @@
     },
     methods: {
       signIn() {
-        this.$store.dispatch('signIn', {email: this.email, password: this.password});
-//        this.$store.commit(types.SET_UP_FEATHERS)
+        return new Promise((resolve, reject) => {
+          this.FeathersClient.authenticate({
+            strategy: 'local',
+            email: this.email,
+            password: this.password
+          }).then(token => {
+            console.log('User is logged in');
+            console.log(token);
+            this.$store.commit(types.SIGN_IN);
+            resolve(token)
+          }).catch(error => {
+            reject(error)
+          });
+        })
       }
     }
   }

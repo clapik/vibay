@@ -8,4 +8,8 @@ const client = feathers()
     storage: window.localStorage
   }));
 
-export default client;
+function install(Vue) {
+  Vue.prototype.FeathersClient = client;
+}
+
+export default install;

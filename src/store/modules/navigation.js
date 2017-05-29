@@ -1,20 +1,8 @@
-import * as types from '../mutation-types'
+const state = {};
 
-const state = {
-  showSidebar: true
-};
+const getters = {};
 
-const getters = {
-  showSidebar: (state) => {
-    return state.showSidebar
-  }
-};
-
-const mutations = {
-  [types.TOGGLE_SIDEBAR](state) {
-    state.showSidebar = !state.showSidebar
-  }
-};
+const mutations = {};
 
 const actions = {};
 
