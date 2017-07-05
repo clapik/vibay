@@ -6,7 +6,7 @@
                      :class="{'navigation-drawer-clickable': mini}">
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>
-              <img src="https://randomuser.me/api/portraits/lego/1.jpg" />
+              <img src="https://randomuser.me/api/portraits/lego/1.jpg"/>
               <v-icon class="navigation-drawer-mini-expand" v-if="mini" light>chevron_right</v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
@@ -50,9 +50,11 @@
           <v-icon>more_vert</v-icon>
         </v-btn>
         <v-list>
-          <v-list-item v-for="item in toolbarItems" :key="item">
+          <v-list-item v-for="item in toolbarItems"
+                       :key="item"
+                       @click="item.id === 'signOut' ? signOut() : null">
             <v-list-tile>
-              <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+              <v-list-tile-title>{{ item.display }}</v-list-tile-title>
             </v-list-tile>
           </v-list-item>
         </v-list>
@@ -67,6 +69,8 @@
 </template>
 
 <script>
+  import * as types from './store/mutation-types';
+
   export default {
     name: 'app',
     data() {
@@ -74,30 +78,23 @@
         showSidebar: true,
         mini: true,
         sidebarItems: [
-          { title: 'Home', icon: 'mail', active: true },
-          { title: 'Email', icon: 'mail' }
+          {title: 'Home', icon: 'mail', active: true},
+          {title: 'Email', icon: 'mail'}
         ],
         toolbarItems: [
-          {name: 'Account Settings'},
-          {name: 'Sign Out'}
+          {id: 'accountSettings', display: 'Account Settings'},
+          {id: 'signOut', display: 'Sign Out'}
         ]
+      }
+    },
+    methods: {
+      signOut() {
+        this.FeathersClient.logout().then(() => {
+          this.$store.commit(types.SIGN_OUT);
+        })
       }
     }
   };
 </script>
 
-<style lang="styl">
-  @import 'main.styl';
-
-  .navigation-drawer {
-    &-clickable {
-       cursor: pointer;
-     }
-
-    &-mini-expand {
-       position: absolute;
-       top: 7px;
-       right: -11px;
-     }
-  }
-</style>
+<style src="./App.styl" lang="stylus"></style>

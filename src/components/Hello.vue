@@ -2,7 +2,7 @@
   <v-layout row-sm child-flex-sm column>
     <v-flex xs12 style="background: black">
       <v-text-field v-model="email" label="Email" hide-details single-line light></v-text-field>
-      <v-text-field v-model="password" label="Search" hide-details single-line light></v-text-field>
+      <v-text-field v-model="password" type="password" label="Search" hide-details single-line light></v-text-field>
       <v-btn @click.native.stop="signIn()">Sign In</v-btn>
     </v-flex>
   </v-layout>
@@ -27,8 +27,10 @@
             email: this.email,
             password: this.password
           }).then(token => {
-            console.log('User is logged in');
-            console.log(token);
+            const users = this.FeathersClient.service('users');
+            users.find({query: {email: this.email}}).then(response => {
+              this.$store.commit(types.RETRIEVE_USER, response.data[0])
+            });
             this.$store.commit(types.SIGN_IN);
             resolve(token)
           }).catch(error => {
